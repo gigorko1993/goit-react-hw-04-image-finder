@@ -98,7 +98,7 @@ class App extends Component {
 
     return (
       <div>
-        <Searchbar setValue={this.setValue} />
+        <Searchbar onClick={this.setValue} />
 
         {status === 'idle' ? (
           <h2 className={s.title}>Input your query to find images</h2>
