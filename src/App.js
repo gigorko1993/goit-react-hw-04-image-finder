@@ -44,7 +44,7 @@ export default function App() {
           });
         }
 
-        setImages(p => [...p, ...res.hits]);
+        setImages(prevImages => [...prevImages, ...res.hits]);
         setStatus(STATUS.RESOLVED);
       })
       .catch(() => setStatus(STATUS.REJECT))
@@ -72,7 +72,7 @@ export default function App() {
   const onImageClick = id => {
     const modalImg = images.find(el => el.id === id);
     setModalContent(modalImg);
-    setShowModal(p => !p);
+    setShowModal(prevState => !prevState);
   };
 
   return (
@@ -87,7 +87,7 @@ export default function App() {
           <ImageGallery images={images} onImageClick={onImageClick} />
           <Button
             onClick={() => {
-              setPage(p => p + 1);
+              setPage(prevPage => prevPage + 1);
             }}
           />
         </>
@@ -107,7 +107,7 @@ export default function App() {
       {showModal && (
         <Modal
           showModal={() => {
-            setShowModal(p => !p);
+            setShowModal(prevState => !prevState);
           }}
         >
           <img src={modalContent.largeImageURL} alt={modalContent.tags} />

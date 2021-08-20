@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './ImageGalleryItem.module.css';
 
 const ImageGalleryItem = ({ images, onImageClick }) => {
